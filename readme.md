@@ -41,3 +41,11 @@ curl https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css
 ```
 
 then just run `live-server` at the root of your project.
+
+## Deploy
+
+At the root of your project, open powershell and run
+
+```powershell
+.\scripts\deploy.ps1
+```
