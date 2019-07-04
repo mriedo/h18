@@ -4,7 +4,7 @@ H18 layer swipe
 
 ## Getting started
 
-1. Create an empty folder and open Powershell inside it. Then:
+Create an empty folder and open Powershell inside it. Then:
 ```powershell
 git clone https://github.com/maltaesousa/h18.git .
 
