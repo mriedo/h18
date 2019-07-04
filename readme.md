@@ -1,4 +1,4 @@
-# layerSwipe
+# H18
 
 H18 layer swipe
 
