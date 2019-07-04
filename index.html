@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="stylesheet" href="assets/ol/ol.css" type="text/css">
+  <link rel="stylesheet" href="assets/ol-ext/ol-ext.min.css" type="text/css">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <style>
+    .map {
+      width: 100%;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+  </style>
+  <script
+    src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Element.prototype.classList,URL,Object.assign"></script>
+  <script src="assets/jquery/jquery-3.3.1.min.js"></script>
+  <script src="assets/jquery-ui/jquery-ui.min.js"></script>
+  <script src="assets/proj4/proj4.js"></script>
+  <script src="assets/ol/ol.js"></script>
+  <script src="assets/ol-ext/ol-ext.min.js"></script>
+  <title>H18</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h1 class="text-center">H18</h1>
+    <div id="sitn-map" class="map"></div>
+    <script>
+      const target = 'sitn-map';
+      const extent = [2420000, 1030000, 2900000, 1350000];
+      const crs = 'EPSG:2056';
+
+      proj4.defs(crs,
+        '+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333' +
+        ' +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel ' +
+        '+towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs')
+      ol.proj.proj4.register(proj4)
+      const _projection = new ol.proj.Projection({
+        code: crs,
+        extent: extent
+      });
+
+      const layer2019 = new ol.layer.Image({
+        extent: extent,
+        source: new ol.source.ImageWMS({
+          url: 'http://wssgrf008.ne.ch/planville2019/wms?',
+          params: { 'LAYERS': 'SITN' },
+          ratio: 1
+        })
+      });
+
+      const layerH18 = new ol.layer.Image({
+        extent: extent,
+        source: new ol.source.ImageWMS({
+          url: 'http://wssgrf008.ne.ch/planville2019_h18/wms?',
+          params: { 'LAYERS': 'SITN' },
+          ratio: 1
+        })
+      });
+
+      const swipe = $('#swipe')[0];
+
+      const view = new ol.View({
+        projection: _projection,
+        center: ol.proj.fromLonLat([6.841, 47.096], _projection),
+        zoom: 10
+      });
+
+      const map1 = new ol.Map({
+        target: target,
+        layers: [layer2019, layerH18],
+        view: view
+      });
+
+      const ctrl = new ol.control.Swipe();
+      map1.addControl(ctrl);
+      // Set layer2019 on left
+      ctrl.addLayer(layer2019);
+      // layerH18 on right
+      ctrl.addLayer(layerH18, true);
+    </script>
+    <hr>
+  </div>
+</body>
+
+</html>
