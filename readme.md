@@ -1,17 +1,19 @@
 # layerSwipe
 
-Just an example of layer swipe with open layers
+H18 layer swipe
 
 ## Getting started
+
 1. Create an empty folder and open Powershell inside it. Then:
 ```powershell
-git clone .
+git clone https://github.com/maltaesousa/h18.git .
 
 ```
 
 Get assets by downloading them in the assets folder.
 
 ```powershel
+curl https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css -o assets\bootstrap\bootstrap.min.css
 curl https://code.jquery.com/jquery-3.3.1.min.js -o assets\jquery\jquery-3.3.1.min.js
 curl https://code.jquery.com/ui/1.12.1/jquery-ui.min.js -o assets\jquery-ui\jquery-ui.min.js
 curl https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js -o assets\ol\ol.js
@@ -19,10 +21,6 @@ curl https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css
 curl https://raw.githubusercontent.com/proj4js/proj4js/2.5.0/dist/proj4.js -o assets\proj4\proj4.js
 curl https://raw.githubusercontent.com/Viglino/ol-ext/master/dist/ol-ext.min.js -o assets\ol-ext\ol-ext.min.js
 curl https://raw.githubusercontent.com/Viglino/ol-ext/master/dist/ol-ext.min.css -o assets\ol-ext\ol-ext.min.css
-curl https://use.fontawesome.com/releases/v5.5.0/fontawesome-free-5.5.0-web.zip -o assets\fa.zip
-Expand-Archive assets\fa.zip -DestinationPath assets
-get-childitem -Path "assets\fontawesome*" | rename-item -NewName fontawesome
-del assets\fa.zip
 ```
 
 ## Dev environment

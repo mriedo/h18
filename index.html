@@ -8,13 +8,21 @@
   <meta http-equiv="Expires" content="0" />
   <link rel="stylesheet" href="assets/ol/ol.css" type="text/css">
   <link rel="stylesheet" href="assets/ol-ext/ol-ext.min.css" type="text/css">
-  <link rel="stylesheet" href="assets/fontawesome/css/all.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
   <style>
     .map {
       width: 100%;
+      background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAnRSTlMAAHaTzTgAAAARSURBVHgBY3iKBFEAOp/+MgB+UQnYeBZPWAAAAABJRU5ErkJggg==) !important;
+      background-color: rgb(255, 255, 255);
+      background-position-x: 0%;
+      background-position-y: 0%;
+      background-repeat: repeat;
+      background-attachment: scroll;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAnRSTlMAAHaTzTgAAAARSURBVHgBY3iKBFEAOp/+MgB+UQnYeBZPWAAAAABJRU5ErkJggg==");
+      background-size: auto;
+      background-origin: padding-box;
+      background-clip: border-box;
     }
-
     html,
     body {
       height: 100%;
@@ -32,7 +40,11 @@
 
 <body>
   <div class="container-fluid">
-    <h1 class="text-center">H18</h1>
+    <div class="d-flex justify-content-between align-items-baseline">
+      <h3>ACTUEL</h3>
+      <h1 class="text-center">H18</h1>
+      <h3>FUTUR</h3>
+    </div>
     <div id="sitn-map" class="map"></div>
     <script>
       const target = 'sitn-map';
@@ -88,7 +100,6 @@
       // layerH18 on right
       ctrl.addLayer(layerH18, true);
     </script>
-    <hr>
   </div>
 </body>
 
