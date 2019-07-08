@@ -64,7 +64,7 @@
       const layer2019 = new ol.layer.Image({
         extent: extent,
         source: new ol.source.ImageWMS({
-          url: 'https://sitn.ne.ch/planville2019/wms?',
+          url: 'https://sitn.ne.ch/ogc-sitn95-planvillev2_h18/wms?',
           params: { 'LAYERS': 'SITN' },
           ratio: 1
         })
@@ -73,7 +73,7 @@
       const layerH18 = new ol.layer.Image({
         extent: extent,
         source: new ol.source.ImageWMS({
-          url: 'https://sitn.ne.ch/planville2019_h18/wms?',
+          url: 'https://sitn.ne.ch/ogc-sitn95-planvillev2_h18/wms?',
           params: { 'LAYERS': 'SITN' },
           ratio: 1
         })
